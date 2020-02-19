@@ -5,6 +5,7 @@
 - 一開始我都是使用py2exe這一個套件，不過最近(2020/02/19)再次使用，發現怎麼包都有問題，由x64的python改成x32的python仍然不行…
 - 後來改用pyinstaller就可以了，但在我有使用到SQL相關套件時，因為會引入dll的東西，又造成程式不能執行，因此記錄一下解決的過程
 
+----
 ## pyinstaller
 一開始我是在x64的python環境，後來因為想要讓程式可以在x64, x86都可以執行，因此以下的操作都是以 x86 python 操作
 
@@ -38,3 +39,7 @@ pymssql.__version__
 - 如果需要加入自己的icon的話，可以改下指令: `pyinstaller --onefile dbtest.py -i icon.ico`，就可以得到
 
 - 而icon檔要怎麼轉呢? 可以到[這邊](https://icoconvert.com/)上傳你的圖檔，轉成可使用的.ico檔
+
+----
+## py2exe
+這個晚點再補上，因為本來可以用的方法現在都怪怪的不能使用了…
