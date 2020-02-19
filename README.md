@@ -8,8 +8,32 @@
 ## pyinstaller
 一開始我是在x64的python環境，後來因為想要讓程式可以在x64, x86都可以執行，因此以下的操作都是以 x86 python 操作
 
+- 安裝指令: pip install pyinstaller
+
 ### 以 console_exe_1 資料夾為例
 
 - 因為只有一個 print('hello')最為簡單，只需要command line下指令 `pyinstall --onefile console.py`
 - 產生的執行檔會在 dist 資料夾中，裡面我有放一個 `run.bat` 方便執行程式，並看執行結果
 
+### 如果import比較多東西時
+
+- 這一個例子我引入比較多
+```
+from sqlalchemy import create_engine
+import paho.mqtt.client as mqtt
+import time, json, datetime
+```
+
+- 因為sqlalchemy我使用時會隱含使用到pymssql的套件，`db_url = "mssql+pymssql://abc:123@1.2.3.4:1433/mydb"` ，但pyinstaller不會知道，所以包裝會成功，但是執行時會有 `ModuleNotFoundError: No module named 'pymssql'` 的錯誤產生
+- 解決的方式試了很多，但最有效的莫過於直接把你有隱含用到的套件再引入一次，如下:
+```
+import pymssql
+pymssql.__version__
+```
+因為只是要讓pyinstaller知道我們有用到這套件，請它包進去，因此只需要執行取得版本號即可
+
+- 執行包裝的指令 `pyinstaller --onefile dbtest.py` 就可以了
+
+- 如果需要加入自己的icon的話，可以改下指令: `pyinstaller --onefile dbtest.py -i icon.ico`，就可以得到
+
+- 而icon檔要怎麼轉呢? 可以到[這邊](https://icoconvert.com/)上傳你的圖檔，轉成可使用的.ico檔
