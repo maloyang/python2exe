@@ -1,0 +1,2 @@
+console.exe
+pause
