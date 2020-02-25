@@ -13,7 +13,7 @@
 
 ### 以 console_exe_1 資料夾為例
 
-- 因為只有一個 print('hello')最為簡單，只需要command line下指令 `pyinstall --onefile console.py`
+- 因為只有一個 print('hello')最為簡單，只需要command line下指令 `pyinstaller --onefile console.py`
 - 產生的執行檔會在 dist 資料夾中，裡面我有放一個 `run.bat` 方便執行程式，並看執行結果
 
 ### 如果import比較多東西時
