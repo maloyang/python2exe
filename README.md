@@ -40,6 +40,8 @@ pymssql.__version__
 
 - 而icon檔要怎麼轉呢? 可以到[這邊](https://icoconvert.com/)上傳你的圖檔，轉成可使用的.ico檔
 
+- 如果要在windows排程中執行, 不想要有視窗出來干擾工作，可以改下這指令處理：`pyinstaller --onefile dbtest.py -i icon.ico -w`
+
 ----
 ## py2exe
 這個晚點再補上，因為本來可以用的方法現在都怪怪的不能使用了…
