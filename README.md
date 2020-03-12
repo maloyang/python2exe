@@ -41,7 +41,9 @@ pymssql.__version__
 - 而icon檔要怎麼轉呢? 可以到[這邊](https://icoconvert.com/)上傳你的圖檔，轉成可使用的.ico檔
 
 - 如果要在windows排程中執行, 不想要有視窗出來干擾工作，可以改下這指令處理：`pyinstaller --onefile dbtest.py -i icon.ico -w`
-
+  - 後來我在win10下產生沒視窗的程式會被內建的defender防毒視為木馬，所以沒辨法執行，因此我使用排程執行時改為「未登入也執行」，這樣它就會沒有視窗，自己靜默在背景執行程式了!
+  
+  
 ----
 ## py2exe
 這個晚點再補上，因為本來可以用的方法現在都怪怪的不能使用了…
